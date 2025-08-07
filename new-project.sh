@@ -15,14 +15,14 @@ read -p "Project name: " name
 case $choice in
     1) 
         echo "📋 Creating Next.js 15 project with modern features..."
-        cp -r ~/templates/nextjs-ultimate ~/workspace/$name
-        cd ~/workspace/$name
+        cp -r ./nextjs-ultimate /workspace/$name
+        cd /workspace/$name
         npm install
         npx prisma generate
         echo ""
         echo "✅ Next.js 15 project '$name' ready!"
         echo "🚀 Commands:"
-        echo "   cd ~/workspace/$name"
+        echo "   cd /workspace/$name"
         echo "   npm run dev"
         echo ""
         echo "📚 Add features:"
@@ -32,11 +32,11 @@ case $choice in
         ;;
     2) 
         echo "🐍 Creating FastAPI project with modern structure..."
-        cp -r ~/templates/python-ai ~/workspace/$name
+        cp -r ./python-ai /workspace/$name
         echo ""
         echo "✅ FastAPI project '$name' ready!"
         echo "🚀 Commands:"
-        echo "   cd ~/workspace/$name"
+        echo "   cd /workspace/$name"
         echo "   pip install -r requirements.txt"
         echo "   uvicorn app.main:app --reload"
         echo ""
@@ -45,13 +45,13 @@ case $choice in
         ;;
     3)
         echo "🕸️ Creating Neo4j project with graph capabilities..."
-        cp -r ~/templates/neo4j ~/workspace/$name
-        cd ~/workspace/$name
+        cp -r ./neo4j /workspace/$name
+        cd /workspace/$name
         npm install
         echo ""
         echo "✅ Neo4j project '$name' ready!"
         echo "🚀 Commands:"
-        echo "   cd ~/workspace/$name"
+        echo "   cd /workspace/$name"
         echo "   docker-compose up -d    # Start Neo4j"
         echo "   npm run dev            # Start app"
         echo ""
