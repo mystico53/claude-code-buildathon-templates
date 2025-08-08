@@ -16,7 +16,7 @@ echo "🚀 Hackathon Project Creator"
 echo "============================"
 echo ""
 echo "1. 🟢 Minimal Next.js (7 packages) - Pure Next.js + TypeScript"
-echo "2. 🟡 Enhanced Next.js (13 packages) - Tailwind + utilities"
+echo "2. 🟡 Enhanced Next.js (15 packages) - Tailwind + Lucide icons"
 echo "3. 🐍 FastAPI - Modern Python API"
 echo "4. 🕸️  Neo4j Graph - Database + frontend"
 echo ""
@@ -39,11 +39,11 @@ while true; do
 done
 
 # Check if project exists
-if [ -d "/workspace/$name" ]; then
+if [ -d "./$name" ]; then
     echo -e "${YELLOW}Project '$name' already exists!${NC}"
     read -p "Delete existing project? (y/N): " delete_existing
     if [[ $delete_existing =~ ^[Yy]$ ]]; then
-        rm -rf "/workspace/$name"
+        rm -rf "./$name"
         echo -e "${GREEN}Deleted existing project${NC}"
     else
         echo "Aborting..."
@@ -63,8 +63,8 @@ case $choice in
             exit 1
         fi
         
-        cp -r "$SCRIPT_DIR/templates/nextjs-minimal" "/workspace/$name"
-        cd "/workspace/$name"
+        cp -r "$SCRIPT_DIR/templates/nextjs-minimal" "./$name"
+        cd "./$name"
         
         echo "Installing dependencies (7 packages)..."
         npm install --progress=true
@@ -73,7 +73,7 @@ case $choice in
         echo -e "${GREEN}✅ Minimal Next.js project '$name' ready!${NC}"
         echo ""
         echo "🚀 Commands:"
-        echo "   cd /workspace/$name"
+        echo "   cd $name"
         echo "   npm run dev"
         echo ""
         echo "🌐 Visit: http://localhost:3000"
@@ -87,26 +87,27 @@ case $choice in
     2) 
         echo -e "${BLUE}Creating enhanced Next.js project...${NC}"
         
-        if [ ! -d "$SCRIPT_DIR/nextjs-ultimate" ]; then
-            echo -e "${RED}Enhanced template not found${NC}"
+        if [ ! -d "$SCRIPT_DIR/templates/nextjs-enhanced" ]; then
+            echo -e "${RED}Enhanced template not found: $SCRIPT_DIR/templates/nextjs-enhanced${NC}"
             exit 1
         fi
         
-        cp -r "$SCRIPT_DIR/nextjs-ultimate" "/workspace/$name"
-        rm -rf "/workspace/$name/node_modules" "/workspace/$name/package-lock.json" 2>/dev/null
-        cd "/workspace/$name"
+        cp -r "$SCRIPT_DIR/templates/nextjs-enhanced" "./$name"
+        cd "./$name"
         
-        echo "Installing dependencies (13 packages)..."
+        echo "Installing dependencies (15 packages)..."
         npm install --progress=true
         
         echo ""
         echo -e "${GREEN}✅ Enhanced Next.js project '$name' ready!${NC}"
         echo ""
         echo "🚀 Commands:"
-        echo "   cd /workspace/$name"
+        echo "   cd $name"
         echo "   npm run dev"
         echo ""
-        echo "✨ Includes: Tailwind CSS, dark mode, utilities"
+        echo "🌐 Visit: http://localhost:3000"
+        echo ""
+        echo "✨ Includes: Tailwind CSS v4, Lucide icons, beautiful demo"
         ;;
         
     3) 
