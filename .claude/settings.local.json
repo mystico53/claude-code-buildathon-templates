@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(npx create-next-app:*)",
+      "Bash(rm:*)",
+      "Bash(gh repo create:*)",
+      "Bash(gh auth:*)",
+      "Bash(npm install:*)",
+      "Bash(chmod:*)",
+      "Bash(git init:*)",
+      "Bash(git remote add:*)",
+      "Bash(git config:*)",
+      "Bash(git branch:*)",
+      "Bash(cp:*)",
+      "Bash(rsync:*)",
+      "Bash(find:*)",
+      "Bash(true)",
+      "Bash(git add:*)",
+      "Bash(git push:*)",
+      "Bash(git commit -m \"Fix new-project.sh paths for correct workspace usage\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\")",
+      "Bash(kill:*)",
+      "Bash(npm run build:*)",
+      "Bash(npx next:*)",
+      "Bash(python3:*)",
+      "Bash(git commit:*)",
+      "Bash(npm --version)",
+      "Bash(node:*)",
+      "Bash(echo $PATH)",
+      "Bash(mv:*)"
+    ],
+    "deny": []
+  }
+}
