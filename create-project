@@ -2,6 +2,9 @@
 
 set -e
 
+# Start timer
+START_TIME=$(date +%s)
+
 # Colors
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
@@ -156,7 +159,21 @@ case $choice in
         ;;
 esac
 
+# Calculate build time
+END_TIME=$(date +%s)
+BUILD_TIME=$((END_TIME - START_TIME))
+MINUTES=$((BUILD_TIME / 60))
+SECONDS=$((BUILD_TIME % 60))
+
 echo ""
 echo -e "${GREEN}🎉 Project '$name' created successfully!${NC}"
+
+# Display build time
+if [ $MINUTES -gt 0 ]; then
+    echo -e "${BLUE}⏱️  Build time: ${MINUTES}m ${SECONDS}s${NC}"
+else
+    echo -e "${BLUE}⏱️  Build time: ${SECONDS}s${NC}"
+fi
+
 echo "📖 Check README.md for more details"
 echo "🏆 Happy hacking!"
